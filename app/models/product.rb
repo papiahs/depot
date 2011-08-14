@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  validates :title, :description, :img_url, :precio, :presence => true
+  validates :title, :description, :img_url, :precio, :presence => {:message => 'No puede estar vacio'}
   validates :precio, :numericality => {:greater_than_or_equal_to => 0.01}
   validates :title, :uniqueness => true
   validates :img_url, :format => {
