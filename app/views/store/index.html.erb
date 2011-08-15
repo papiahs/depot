@@ -11,7 +11,7 @@
 		<div class="price_line">
 			<span class="price_line"><%= number_to_currency(p.precio) %></span>	
 		</div>
-		<%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
+		<%= button_to 'Agregar', line_items_path(:product_id => p) %>
 		<hr/>		
 	</div>
 <% end%>
