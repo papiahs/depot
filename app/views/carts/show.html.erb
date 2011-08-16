@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
 <h2>Carrito</h2>
 <ul>
 <% for item in @cart.line_items %>
-	<li><%= item.product.title %></li>
+	<li><%= item.q %> &times; <%= item.product.title %></li>
 <% end %>	
 </ul>
-
+<%= button_to 'Vaciar', @cart, :method => :delete,
+:confirm => 'Estas seguro?' %> | 
+<%= link_to("Volver", store_path)%>
