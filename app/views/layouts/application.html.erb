@@ -16,7 +16,12 @@
 		<a href="#">Prueba</a>
 	</div>
 </div>
-<%= render @cart %>
+<div id="cart" 
+<% if @cart.line_items.empty? %>
+	stysle="display:none"
+<% end %>
+> <%= render @cart %> </div>
+
 <hr>
 <div id="main">
 <%= yield %>

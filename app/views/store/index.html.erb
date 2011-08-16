@@ -11,7 +11,7 @@
 		<div class="price_line">
 			<span class="price_line"><%= number_to_currency(p.precio) %></span>	
 		</div>
-		<%= button_to 'Agregar', line_items_path(:product_id => p) %>
+		<%= button_to 'Agregar', line_items_path(:product_id => p), :remote => true %>
 		<hr/>		
 	</div>
 <% end%>
