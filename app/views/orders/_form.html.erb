@@ -1,7 +1,7 @@
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <h2><%= pluralize(@order.errors.count, "error") %> , por favor verifique:</h2>
 
       <ul>
       <% @order.errors.full_messages.each do |msg| %>
@@ -12,22 +12,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nombre" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
+    <%= f.label :address ,"Dirrecion de envio"%><br />
     <%= f.text_area :address %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "Correo Electronico" %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :pay_type %><br />
-    <%= f.text_field :pay_type %>
+    <%= f.label :pay_type, "Forma de Pago"%><br />
+    <%= f.select :pay_type,
+			Order::PAYMENT_TYPES,
+			:prompt => "Indique metodo de pago"
+	%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enviar" %>
   </div>
 <% end %>

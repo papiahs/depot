@@ -8,20 +8,22 @@
   
 </head>
 <body id="store">
-	<div id="banner"> <%= image_tag('/images/rails.png')%>
-<%= @page_title || "Ejemplo de libro"%>
+	<div id="banner"> <h1><%= image_tag('/images/rails.png')%>
+<%= @page_title || "Ejemplo de libro"%></h1>
 </div>
 <div id="columns">
 	<div id="side">
-		<a href="#">Prueba</a>
+		<a href="/">Home</a>
 	</div>
 </div>
-<div id="cart" 
-<% if @cart.line_items.empty? %>
-	style="display:none"
+<% if @cart %>
+	<div id="cart" 
+	<% if @cart.line_items.empty? %>
+		style="display:none"
+	<% end %>
+	> 
+	<%= render @cart %> </div>
 <% end %>
-> <%= render @cart %> </div>
-
 <hr>
 <div id="main">
 <%= yield %>
